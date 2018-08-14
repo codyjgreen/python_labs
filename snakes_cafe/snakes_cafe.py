@@ -10,25 +10,40 @@ MENU = [{
         'Wings': 0,
         'Chilli': 0,
         'Onion rings': 0,
+        'Soup': 0,
+        'Fries': 0,
+        'salad': 0,
+
     },
 
     'entrees': {
         'Crab legs': 0,
         'Buscuits and gravy': 0,
         'Pizza': 0,
+        'Salmon': 0,
+        'Steak': 0,
+        'Chicken': 0,
     },
 
     'desserts': {
         'Peach cobbler': 0,
         'Apple pie': 0,
         'Cake': 0,
+        'Churro': 0,
+        'Ice cream': 0,
+        'Pie': 0,
+
     },
 
     'drinks': {
-        "Cavatica stout": 0,
-        "Mannys": 0,
-        "Vortex IPA": 0,
-        "Water": 0,
+        'Cavatica stout': 0,
+        'Mannys': 0,
+        'Vortex IPA': 0,
+        'Water': 0,
+        'Wine': 0,
+        'Tom Collins': 0,
+
+
     },
 }]
 
