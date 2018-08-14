@@ -8,7 +8,9 @@
 
 # Welcome
 
+
 ### Cody Green Version 1.0.0
+
 
 # Introduction
 
@@ -18,4 +20,9 @@
 
 # Lecture Code
 
+
 # Assignments
+
+
+
+
