@@ -4,9 +4,37 @@ import sys
 
 WIDTH = 96
 
+MENU = [{
+    'apps': {
+        'Wings': 0,
+        'Chilli': 0,
+        'Onion rings': 0,
+    },
+
+    'entrees': {
+        'Crab legs': 0,
+        'Buscuits and gravy': 0,
+        'Pizza': 0,
+    },
+
+    'desserts': {
+        'Peach cobbler': 0,
+        'Apple pie': 0,
+        'Cake': 0,
+    },
+
+    'drinks': {
+        "Cavatica stout": 0,
+        "Mannys": 0,
+        "Vortex IPA": 0,
+        "Water": 0,
+    },
+}
+]
+
 
 def greeting():
-    """Function which will greet the user when run 
+    """Function which will greet the user when run
     """
     ln_one = 'Welcome to Snakes Cafe!'
     ln_two = 'See menu below.'
@@ -70,7 +98,19 @@ def menu():
     '''))
 
 
+def order():
+    """Allows user to place an order from the menu
+    """
+    question = 'What can i get you?'
+
+    print(dedent(
+        question
+    ))
+
+
 def exit():
+    """Allows the user to peacefully exit the application
+    """
     print(dedent('''
         What no tip?!
     '''))
@@ -80,3 +120,5 @@ def exit():
 if __name__ == '__main__':
     greeting()
     menu()
+    order()
+    # print(MENU)
