@@ -4,6 +4,7 @@ import sys
 
 WIDTH = 96
 
+
 MENU = [{
     'apps': {
         'Wings': 0,
@@ -29,8 +30,7 @@ MENU = [{
         "Vortex IPA": 0,
         "Water": 0,
     },
-}
-]
+}]
 
 
 def greeting():
@@ -103,9 +103,7 @@ def order():
     """
     question = 'What can i get you?'
 
-    print(dedent(
-        question
-    ))
+    return input(question)
 
 
 def exit():
@@ -117,8 +115,24 @@ def exit():
     sys.exit()
 
 
-if __name__ == '__main__':
+def check_input(user_in, item):
+    if user_in.lower() == 'quit':
+        exit()
+        return
+
+    if user_in.lower() == item['answer'].lower():
+        return True
+
+    return False
+
+
+def run():
     greeting()
     menu()
-    order()
-    # print(MENU)
+    # order()
+    for item in MENU:
+        user_input = order()
+
+
+if __name__ == '__main__':
+    run()
