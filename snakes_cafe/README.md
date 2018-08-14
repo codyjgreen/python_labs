@@ -8,7 +8,8 @@
 
 # Welcome
 
-###Author: Cody Green Version: 1.0.0
+
+### Cody Green Version 1.0.0
 
 
 # Introduction
@@ -21,4 +22,7 @@
 
 
 # Assignments
+
+
+
 
