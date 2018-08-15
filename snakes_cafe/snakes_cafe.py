@@ -4,33 +4,48 @@ import sys
 
 WIDTH = 96
 
+
 MENU = [{
     'apps': {
         'Wings': 0,
         'Chilli': 0,
         'Onion rings': 0,
+        'Soup': 0,
+        'Fries': 0,
+        'salad': 0,
+
     },
 
     'entrees': {
         'Crab legs': 0,
         'Buscuits and gravy': 0,
         'Pizza': 0,
+        'Salmon': 0,
+        'Steak': 0,
+        'Chicken': 0,
     },
 
     'desserts': {
         'Peach cobbler': 0,
         'Apple pie': 0,
         'Cake': 0,
+        'Churro': 0,
+        'Ice cream': 0,
+        'Pie': 0,
+
     },
 
     'drinks': {
-        "Cavatica stout": 0,
-        "Mannys": 0,
-        "Vortex IPA": 0,
-        "Water": 0,
+        'Cavatica stout': 0,
+        'Mannys': 0,
+        'Vortex IPA': 0,
+        'Water': 0,
+        'Wine': 0,
+        'Tom Collins': 0,
+
+
     },
-}
-]
+}]
 
 
 def greeting():
@@ -50,52 +65,65 @@ def greeting():
 
 
 def menu():
-    """Function will print the menu for the user to view
-    """
-    menu = 'MENU'
+    for item in TYPES:
+        ln_one = item['type']
+        print(dedent(f'''
+            {ln_one}
+            {'-' * len(ln_one)}
+        '''))
+        for elm in MENU:
+            if item['type'] == elm['type']:
+                ln_two = elm['item']
+                print(dedent(f'''{ln_two}'''))
 
-    apps = '''
-    Appetizers\n
-    ----------
-    Wings\n
-    Chilli\n
-    Onion Rings\n
-    '''
 
-    entrees = '''
-    Entrees\n
-    ----------
-    Crab legs\n
-    Buscuits and gravy\n
-    Pizza\n
-    '''
+# def menu():
+#     """Function will print the menu for the user to view
+#     """
+#     menu = 'MENU'
 
-    desserts = '''
-    Desserts\n
-    ----------
-    Peach cobbler\n
-    Apple Pie\n
-    Cake\n
-    '''
+#     apps = '''
+#     Appetizers\n
+#     ----------
+#     Wings\n
+#     Chilli\n
+#     Onion Rings\n
+#     '''
 
-    drinks = '''
-    Drinks\n
-    ----------
-    Cavatica stout\n
-    Mannys\n
-    Vortex IPA\n
-    Water\n
-    '''
+#     entrees = '''
+#     Entrees\n
+#     ----------
+#     Crab legs\n
+#     Buscuits and gravy\n
+#     Pizza\n
+#     '''
 
-    print(dedent(f'''
-        {'*' * WIDTH}
-        {(' ' * ((WIDTH - len(menu)) // 2)) + menu + (' ' * ((WIDTH - len(menu)) // 2))}
-        {(' ' * ((WIDTH - len(apps)) // 2)) + apps + (' ' * ((WIDTH - len(apps)) // 2))}
-        {(' ' * ((WIDTH - len(entrees)) // 2)) + entrees + (' ' * ((WIDTH - len(entrees)) // 2))}
-        {(' ' * ((WIDTH - len(desserts)) // 2)) + desserts + (' ' * ((WIDTH - len(desserts)) // 2))}
-        {(' ' * ((WIDTH - len(drinks)) // 2)) + drinks + (' ' * ((WIDTH - len(drinks)) // 2))}
-        {'*' * WIDTH}
-    '''))
+#     desserts = '''
+#     Desserts\n
+#     ----------
+#     Peach cobbler\n
+#     Apple Pie\n
+#     Cake\n
+#     '''
+
+#     drinks = '''
+#     Drinks\n
+#     ----------
+#     Cavatica stout\n
+#     Mannys\n
+#     Vortex IPA\n
+#     Water\n
+#     '''
+
+#     print(dedent(f'''
+#         {'*' * WIDTH}
+#         {(' ' * ((WIDTH - len(menu)) // 2)) + menu + (' ' * ((WIDTH - len(menu)) // 2))}
+#         {(' ' * ((WIDTH - len(apps)) // 2)) + apps + (' ' * ((WIDTH - len(apps)) // 2))}
+#         {(' ' * ((WIDTH - len(entrees)) // 2)) + entrees + (' ' * ((WIDTH - len(entrees)) // 2))}
+#         {(' ' * ((WIDTH - len(desserts)) // 2)) + desserts + (' ' * ((WIDTH - len(desserts)) // 2))}
+#         {(' ' * ((WIDTH - len(drinks)) // 2)) + drinks + (' ' * ((WIDTH - len(drinks)) // 2))}
+#         {'*' * WIDTH}
+#     '''))
 
 
 def order():
@@ -103,9 +131,7 @@ def order():
     """
     question = 'What can i get you?'
 
-    print(dedent(
-        question
-    ))
+    return input(question)
 
 
 def exit():
@@ -117,8 +143,24 @@ def exit():
     sys.exit()
 
 
-if __name__ == '__main__':
+def check_input(user_in, item):
+    if user_in.lower() == 'quit':
+        exit()
+        return
+
+    if user_in.lower() == item['answer'].lower():
+        return True
+
+    return False
+
+
+def run():
     greeting()
     menu()
-    order()
-    # print(MENU)
+    # order()
+    for item in MENU:
+        user_input = order()
+
+
+if __name__ == '__main__':
+    run()
