@@ -65,52 +65,65 @@ def greeting():
 
 
 def menu():
-    """Function will print the menu for the user to view
-    """
-    menu = 'MENU'
+    for item in TYPES:
+        ln_one = item['type']
+        print(dedent(f'''
+            {ln_one}
+            {'-' * len(ln_one)}
+        '''))
+        for elm in MENU:
+            if item['type'] == elm['type']:
+                ln_two = elm['item']
+                print(dedent(f'''{ln_two}'''))
 
-    apps = '''
-    Appetizers\n
-    ----------
-    Wings\n
-    Chilli\n
-    Onion Rings\n
-    '''
 
-    entrees = '''
-    Entrees\n
-    ----------
-    Crab legs\n
-    Buscuits and gravy\n
-    Pizza\n
-    '''
+# def menu():
+#     """Function will print the menu for the user to view
+#     """
+#     menu = 'MENU'
 
-    desserts = '''
-    Desserts\n
-    ----------
-    Peach cobbler\n
-    Apple Pie\n
-    Cake\n
-    '''
+#     apps = '''
+#     Appetizers\n
+#     ----------
+#     Wings\n
+#     Chilli\n
+#     Onion Rings\n
+#     '''
 
-    drinks = '''
-    Drinks\n
-    ----------
-    Cavatica stout\n
-    Mannys\n
-    Vortex IPA\n
-    Water\n
-    '''
+#     entrees = '''
+#     Entrees\n
+#     ----------
+#     Crab legs\n
+#     Buscuits and gravy\n
+#     Pizza\n
+#     '''
 
-    print(dedent(f'''
-        {'*' * WIDTH}
-        {(' ' * ((WIDTH - len(menu)) // 2)) + menu + (' ' * ((WIDTH - len(menu)) // 2))}
-        {(' ' * ((WIDTH - len(apps)) // 2)) + apps + (' ' * ((WIDTH - len(apps)) // 2))}
-        {(' ' * ((WIDTH - len(entrees)) // 2)) + entrees + (' ' * ((WIDTH - len(entrees)) // 2))}
-        {(' ' * ((WIDTH - len(desserts)) // 2)) + desserts + (' ' * ((WIDTH - len(desserts)) // 2))}
-        {(' ' * ((WIDTH - len(drinks)) // 2)) + drinks + (' ' * ((WIDTH - len(drinks)) // 2))}
-        {'*' * WIDTH}
-    '''))
+#     desserts = '''
+#     Desserts\n
+#     ----------
+#     Peach cobbler\n
+#     Apple Pie\n
+#     Cake\n
+#     '''
+
+#     drinks = '''
+#     Drinks\n
+#     ----------
+#     Cavatica stout\n
+#     Mannys\n
+#     Vortex IPA\n
+#     Water\n
+#     '''
+
+#     print(dedent(f'''
+#         {'*' * WIDTH}
+#         {(' ' * ((WIDTH - len(menu)) // 2)) + menu + (' ' * ((WIDTH - len(menu)) // 2))}
+#         {(' ' * ((WIDTH - len(apps)) // 2)) + apps + (' ' * ((WIDTH - len(apps)) // 2))}
+#         {(' ' * ((WIDTH - len(entrees)) // 2)) + entrees + (' ' * ((WIDTH - len(entrees)) // 2))}
+#         {(' ' * ((WIDTH - len(desserts)) // 2)) + desserts + (' ' * ((WIDTH - len(desserts)) // 2))}
+#         {(' ' * ((WIDTH - len(drinks)) // 2)) + drinks + (' ' * ((WIDTH - len(drinks)) // 2))}
+#         {'*' * WIDTH}
+#     '''))
 
 
 def order():
